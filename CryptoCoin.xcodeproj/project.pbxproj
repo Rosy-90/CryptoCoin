@@ -10,6 +10,11 @@
 		8B51B4052657D2F1006DBADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51B4042657D2F1006DBADB /* Assets.xcassets */; };
 		8B51B4172657F575006DBADB /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B4162657F575006DBADB /* CoinView.swift */; };
 		8B51B41A2657F6CC006DBADB /* CryptoCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B4192657F6CC006DBADB /* CryptoCoinApp.swift */; };
+		8B51B41D265817B5006DBADB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B41C265817B5006DBADB /* NetworkService.swift */; };
+		8B51B420265B9041006DBADB /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B41F265B9041006DBADB /* ConnectionError.swift */; };
+		8B51B422265B9196006DBADB /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B421265B9196006DBADB /* EndPoints.swift */; };
+		8B51B424265B92A8006DBADB /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B423265B92A8006DBADB /* ModelManager.swift */; };
+		8B51B426265B9368006DBADB /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51B425265B9368006DBADB /* CoinModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +23,11 @@
 		8B51B4092657D2F1006DBADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B51B4162657F575006DBADB /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		8B51B4192657F6CC006DBADB /* CryptoCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinApp.swift; sourceTree = "<group>"; };
+		8B51B41C265817B5006DBADB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8B51B41F265B9041006DBADB /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		8B51B421265B9196006DBADB /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		8B51B423265B92A8006DBADB /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		8B51B425265B9368006DBADB /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +71,38 @@
 		8B51B4182657F581006DBADB /* SwftUI */ = {
 			isa = PBXGroup;
 			children = (
-				8B51B4162657F575006DBADB /* CoinView.swift */,
+				8B51B427265B93C9006DBADB /* Model */,
+				8B51B41B2658178C006DBADB /* View */,
+				8B51B41E265817BA006DBADB /* Service */,
 			);
 			path = SwftUI;
+			sourceTree = "<group>";
+		};
+		8B51B41B2658178C006DBADB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B51B4162657F575006DBADB /* CoinView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B51B41E265817BA006DBADB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8B51B41C265817B5006DBADB /* NetworkService.swift */,
+				8B51B41F265B9041006DBADB /* ConnectionError.swift */,
+				8B51B421265B9196006DBADB /* EndPoints.swift */,
+				8B51B423265B92A8006DBADB /* ModelManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8B51B427265B93C9006DBADB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B51B425265B9368006DBADB /* CoinModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +174,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B51B4172657F575006DBADB /* CoinView.swift in Sources */,
+				8B51B422265B9196006DBADB /* EndPoints.swift in Sources */,
+				8B51B41D265817B5006DBADB /* NetworkService.swift in Sources */,
+				8B51B420265B9041006DBADB /* ConnectionError.swift in Sources */,
 				8B51B41A2657F6CC006DBADB /* CryptoCoinApp.swift in Sources */,
+				8B51B424265B92A8006DBADB /* ModelManager.swift in Sources */,
+				8B51B426265B9368006DBADB /* CoinModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
