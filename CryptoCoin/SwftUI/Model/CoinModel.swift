@@ -7,16 +7,18 @@
 
 import Foundation
 
-struct CryptoDataContainer: Decodable {
+struct CryptoDataContainer: Codable {
     let status: String
     let data: CryptoData
 }
 
-struct CryptoData: Decodable{
+struct CryptoData: Codable {
     let coins:[Coin]
 }
 
-struct Coin: Decodable {
+struct Coin: Codable, Identifiable {
+    var id: String
+    
     let name: String
     let price: String
 }

@@ -26,6 +26,7 @@ class ModelManager: ModelManagerProtocol {
             return Fail(error: ConnectionError.invalidSearchItem).eraseToAnyPublisher()
         }
         return webService.dataPublisher(url: url).decode(type: CryptoDataContainer.self, decoder: JSONDecoder()).map { model in
+            print(model)
             return model
         }
         .tryCatch { error in

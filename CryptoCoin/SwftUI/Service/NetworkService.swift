@@ -18,6 +18,7 @@ class NetworkService: NetWorkServiceProtocol {
             guard let httpResponsse = response as? HTTPURLResponse, httpResponsse.statusCode == 200 else {
                 throw ConnectionError.badServerResponse
             }
+            print(data)
             return data
         }
         .eraseToAnyPublisher()
