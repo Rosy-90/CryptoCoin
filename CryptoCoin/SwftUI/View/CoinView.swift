@@ -8,48 +8,36 @@
 import SwiftUI
 
 struct CoinView: View {
-    //var result: Coin
-    //let modelManager = ModelManager(webService: NetworkService())
     
     @StateObject var viewModel: CoinViewModel
-    //var viewModel: CoinViewModel
-    //@ObservedObject private var coinItemView = CoinItemView(viewModel: viewModel)
+    
+    init(viewModel: CoinViewModel = .init(modelManager:
+                                            ModelManager(webService: NetworkService()))) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        NavigationView {
-            List {
-                Group{
-                    VStack{
-                        HStack{
-                            //Text(result.name)
-                            Text(viewModel.coinResult?.data.coins[0].name ?? "")
-                        Spacer()
-                            //Text(result.price)
-                            Text(viewModel.coinResult?.data.coins[0].price ?? "")
-                        }
-                    }
-//                    VStack{
-//                        HStack{
-//                        Text("Ethereum")
-//                        Spacer()
-//                        Text("$2802.46")
-//                        }
-//                    }
+        if let results = viewModel.coinResult?.data.coins {
+            NavigationView{
+                List(results) { result in
+                    Text(result.name)
+                    Spacer()
+                    Text(result.price)
                 }
+                .navigationTitle("Coins")
             }
-            .navigationTitle("Coins")
-            //.edgesIgnoringSafeArea(.all)
+        }
+        else {
+            Text("Loading...")
+                .onAppear() {
+                    self.viewModel.fetchCoins()
+                }
         }
     }
 }
 
 struct CoinView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        //CoinView(result: [Coin(id: "", name: "", price: "")])
-        //return CoinView(result: Coin(id: "", name: "", price: ""))
-        
         CoinView(viewModel: CoinViewModel(modelManager: ModelManager(webService: NetworkService())))
-        
     }
 }

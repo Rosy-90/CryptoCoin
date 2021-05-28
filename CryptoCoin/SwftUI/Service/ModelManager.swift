@@ -25,8 +25,9 @@ class ModelManager: ModelManagerProtocol {
         guard url != nil else {
             return Fail(error: ConnectionError.invalidSearchItem).eraseToAnyPublisher()
         }
-        return webService.dataPublisher(url: url).decode(type: CryptoDataContainer.self, decoder: JSONDecoder()).map { model in
-            print(model)
+        return webService.dataPublisher(url: url)
+            .decode(type: CryptoDataContainer.self, decoder: JSONDecoder())
+            .map { model in
             return model
         }
         .tryCatch { error in

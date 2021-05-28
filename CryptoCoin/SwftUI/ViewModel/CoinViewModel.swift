@@ -13,23 +13,33 @@ protocol CoinViewModelProtocol {
 }
 
 class CoinViewModel: CoinViewModelProtocol, ObservableObject {
+    
     private var modelManager: ModelManagerProtocol
     @Published private(set) var coinResult: CryptoDataContainer?
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     init(modelManager: ModelManagerProtocol) {
         self.modelManager = modelManager
     }
     
     func fetchCoins() {
-        modelManager.modelPublisher().sink { completion in
-            //
-        } receiveValue: { [weak self] model in
-            DispatchQueue.main.async { [weak self] in
-                self?.coinResult = model
-            }
-        }
-
+        modelManager.modelPublisher()
+            .sink(receiveCompletion: { completion in
+                //
+            }, receiveValue: { [weak self] model in
+                DispatchQueue.main.async { [weak self] in
+                    self?.coinResult = model
+                    
+                }
+            })
+            .store(in: &cancellables)
     }
     
-    
+    deinit {
+        cancellables.forEach {
+            $0.cancel()
+        }
+    }
 }
+

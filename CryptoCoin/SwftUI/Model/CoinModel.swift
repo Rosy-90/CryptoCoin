@@ -17,8 +17,7 @@ struct CryptoData: Codable {
 }
 
 struct Coin: Codable, Identifiable {
-    var id: String
-    
+    let id: Int
     let name: String
     let price: String
 }
