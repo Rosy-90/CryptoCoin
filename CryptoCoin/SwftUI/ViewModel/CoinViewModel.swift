@@ -30,6 +30,7 @@ class CoinViewModel: CoinViewModelProtocol, ObservableObject {
             }, receiveValue: { [weak self] model in
                 DispatchQueue.main.async { [weak self] in
                     self?.coinResult = model
+                    print("Hello Rosy")
                     
                 }
             })
