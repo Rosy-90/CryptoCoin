@@ -31,6 +31,7 @@ class CoinViewModel: CoinViewModelProtocol, ObservableObject {
                 DispatchQueue.main.async { [weak self] in
                     self?.coinResult = model
                     print("Hello Rosy")
+                    print("Hello Anshika")
                     
                 }
             })
