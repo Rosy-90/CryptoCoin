@@ -38,31 +38,3 @@ class ViewController: UIViewController {
     
 //MARK:- TableView methods
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        myViewModel.messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        let message = myViewModel.messages[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "coincell",for: indexPath)
-        cell.textLabel?.text = message.name
-        
-        let formattedprice = format(price: message.price)
-        cell.detailTextLabel?.text = formattedprice
-        return cell
-    }
-}
-
-extension ViewController: didUpdateUITableView {
-    func didUpdateTableView(_ cryptoModel: CryptoViewModel, coin: Coin) {
-        DispatchQueue.main.async {
-            self.tableCoins.reloadData()
-        }
-    }
-}
-
-
-
